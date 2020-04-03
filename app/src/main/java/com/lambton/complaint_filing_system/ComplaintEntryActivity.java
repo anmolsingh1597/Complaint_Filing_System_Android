@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -216,7 +217,38 @@ public class ComplaintEntryActivity extends AppCompatActivity {
          email = emailText.getText().toString();
          mobile = mobileText.getText().toString();
 
+        passingData();
+
+        Intent homeIntent = new Intent(ComplaintEntryActivity.this,DisplayActivity.class);
+        homeIntent.putExtra("Suffix",suffixTitle);
+        homeIntent.putExtra("First",firstName);
+        homeIntent.putExtra("Last",lastName);
+        homeIntent.putExtra("EmployStatus",employmentStatus);
+        homeIntent.putExtra("DesignationStatus",designationStatus);
+        homeIntent.putExtra("Unit",unitNo);
+        homeIntent.putExtra("StreetNo",streetNo);
+        homeIntent.putExtra("Street",streetName);
+        homeIntent.putExtra("City",city);
+        homeIntent.putExtra("Province",province);
+        homeIntent.putExtra("Country",country);
+        homeIntent.putExtra("Email",email);
+        homeIntent.putExtra("CountryCode",countryCode);
+        homeIntent.putExtra("Mobile",mobile);
+        homeIntent.putExtra("Date",dateOfIssue);
+        homeIntent.putExtra("Check1",severity1);
+        homeIntent.putExtra("Check2",severity2);
+        homeIntent.putExtra("Check3",severity3);
+        homeIntent.putExtra("Check4",severity4);
+        homeIntent.putExtra("Rating",severityRating);
+
+        startActivity(homeIntent);
+
+
     }
 
+    public void passingData(){
+        ComplaintEntry userEntry = new ComplaintEntry(suffixTitle,firstName,lastName,employmentStatus,designationStatus,unitNo,streetNo,streetName,city,province,country,email,
+                countryCode,mobile,dateOfIssue,severity1,severity2,severity3,severity4,severityRating);
+    }
 
 }

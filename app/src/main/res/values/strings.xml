@@ -19,6 +19,7 @@
     <string name="system_crashing">SC</string>
     <string name="slow_internet">SI</string>
     <string name="software_installation">ST</string>
+    <string name="complaint_filed">Complaint Filed</string>
     <array name="suffixArray">
         <item>Mr.</item>
         <item>Mrs.</item>
