@@ -12,6 +12,9 @@
     <string name="city">City</string>
     <string name="country">Country</string>
     <string name="province">Province</string>
+    <string name="email">Email</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="date">Date</string>
     <array name="suffixArray">
         <item>Mr.</item>
         <item>Mrs.</item>
@@ -20,5 +23,12 @@
         <item>Dr.</item>
         <item>Sir.</item>
         <item>Lord.</item>
+    </array>
+    <array name="countryCodes">
+        <item>"+91"</item>
+        <item>"+1"</item>
+        <item>"+93"</item>
+        <item>"+355"</item>
+        <item>"+213"</item>
     </array>
 </resources>

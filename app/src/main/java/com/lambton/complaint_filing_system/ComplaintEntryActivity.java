@@ -1,13 +1,18 @@
 package com.lambton.complaint_filing_system;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.Pair;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.MaterialDatePicker;
 
 public class ComplaintEntryActivity extends AppCompatActivity {
 
@@ -15,7 +20,7 @@ public class ComplaintEntryActivity extends AppCompatActivity {
     private TextView lastNameText;
     private AutoCompleteTextView employmentStatusAutoComplete;
     private AutoCompleteTextView designationStatusAutoComplete;
-
+    private TextView issueDate;
     String firstName;
 
     @Override
@@ -30,6 +35,8 @@ public class ComplaintEntryActivity extends AppCompatActivity {
         lastNameText = findViewById(R.id.enterLastNameTextView);
         employmentStatusAutoComplete = findViewById(R.id.employmentStatusAutoComplete);
         designationStatusAutoComplete = findViewById(R.id.designationAutoComplete);
+        issueDate = findViewById(R.id.enterDateTextView);
+//        issueDate = MaterialDatePicker.Builder.dateRangePicker();
         autoCompleteDesignation();
         autoCompleteEmploymentStatus();
 
@@ -48,7 +55,7 @@ public class ComplaintEntryActivity extends AppCompatActivity {
                 "Software Engineer", "Sr. Software Engineer", "Project Manager", "Support Engineer", "Designer", "Marketing"
         };
         ArrayAdapter<String> designationAdapter = new ArrayAdapter<>(ComplaintEntryActivity.this,android.R.layout.simple_spinner_dropdown_item,designationList);
-        employmentStatusAutoComplete.setAdapter(designationAdapter);
+        designationStatusAutoComplete.setAdapter(designationAdapter);
 
     }
 
@@ -56,5 +63,12 @@ public class ComplaintEntryActivity extends AppCompatActivity {
     public void save(View view){
          firstName = firstNameText.getText().toString();
         Toast.makeText(ComplaintEntryActivity.this, firstName, Toast.LENGTH_SHORT).show();
+    }
+
+    public void dateImageButton(View view){
+        MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
+        builder.setTitleText(R.string.save);
+        MaterialDatePicker<Long> picker = builder.build();
+        picker.show(getSupportFragmentManager(), picker.toString());
     }
 }
