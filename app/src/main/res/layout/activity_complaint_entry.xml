@@ -7,6 +7,23 @@
     android:background="@color/blue_grey_900"
     tools:context=".ComplaintEntryActivity">
 
+    <AutoCompleteTextView
+        android:id="@+id/employementStatusAutoComplete"
+        android:layout_width="236dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="508dp"
+        android:hint="Employment Status"
+        android:entries="@array/suffixArray"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+        android:textColor="@color/blue_grey_500"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.577"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameTextView"
+        app:layout_constraintVertical_bias="0.21" />
+
     <EditText
         android:id="@+id/firstNameTextView"
         android:layout_width="115dp"
