@@ -5,70 +5,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_grey_900"
+    android:theme="@style/Theme.MaterialComponents"
     tools:context=".ComplaintEntryActivity">
 
-    <AutoCompleteTextView
-        android:id="@+id/employementStatusAutoComplete"
-        android:layout_width="236dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="508dp"
-        android:hint="Employment Status"
-        android:entries="@array/suffixArray"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-        android:textColor="@color/blue_grey_500"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.577"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastNameTextView"
-        app:layout_constraintVertical_bias="0.21" />
-
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/firstNameTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="115dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="195dp"
-        android:layout_marginBottom="594dp"
-        android:ems="10"
-        android:hint="Enter First Name"
-        android:inputType="textPersonName"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-        android:textColor="@color/blue_grey_500"
+        android:layout_height="60dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/enter_first_name"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.327"
         app:layout_constraintStart_toEndOf="@+id/spinner"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.081"
+        app:suffixTextColor="@color/Red">
+        ​
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterFirstNameTextView"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/lastNameTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="115dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="75dp"
-        android:layout_marginBottom="594dp"
-        android:ems="10"
-        android:hint="Enter Last Name"
-        android:inputType="textPersonName"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-        android:textColor="@color/blue_grey_500"
+        android:layout_height="60dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/enter_last_name"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toEndOf="@+id/firstNameTextView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.081"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterLastNameTextView"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Complaint Filing System"
+        android:text="@string/complaint_filing_system"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
         android:textColor="@color/blue_grey_500"
@@ -91,10 +94,10 @@
         android:background="@drawable/btn_rounded_green_300"
         android:entries="@array/suffixArray"
         android:popupBackground="@drawable/spinner_rounded_green_300"
+        android:textColor="@color/blue_grey_500"
         android:spinnerMode="dropdown"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-        android:textColor="@color/blue_grey_500"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,5 +105,221 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0" />
+
+    <AutoCompleteTextView
+        android:id="@+id/employmentStatusAutoComplete"
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/employment_status"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+        android:textColor="@color/blue_grey_500"
+        android:textColorHint="@color/green_300"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/designationAutoComplete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.805"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <AutoCompleteTextView
+        android:id="@+id/designationAutoComplete"
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="@string/designation"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+        android:textColor="@color/blue_grey_500"
+        android:textColorHint="@color/green_300"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.805"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameTextView"
+        app:layout_constraintVertical_bias="0.006" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/unitNumberTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:hint="@string/unit_no"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/streetNumberTextView"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/designationAutoComplete"
+        app:layout_constraintVertical_bias="0.0"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterUnitNumberTextView"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/streetNumberTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:hint="@string/street_no"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/streetNamerTextView"
+        app:layout_constraintStart_toEndOf="@+id/unitNumberTextView"
+        app:layout_constraintTop_toBottomOf="@+id/designationAutoComplete"
+        app:layout_constraintVertical_bias="0.0"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterStreetNumberTextView"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/streetNamerTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:hint="@string/street_name"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/designationAutoComplete"
+        app:layout_constraintVertical_bias="0.0"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterStreetNameTextView"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cityTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:hint="@string/city"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/streetNumberTextView"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unitNumberTextView"
+        app:layout_constraintVertical_bias="0.0"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterCityTextView"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/provinceTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:hint="@string/province"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/streetNamerTextView"
+        app:layout_constraintStart_toEndOf="@+id/unitNumberTextView"
+        app:layout_constraintTop_toBottomOf="@+id/streetNumberTextView"
+        app:layout_constraintVertical_bias="0.0"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterProvinceTextView"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/countryTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="115dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:hint="@string/country"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/streetNumberTextView"
+        app:layout_constraintVertical_bias="0.0"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterCountryTextView"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="save"
+        android:text="@string/save"
+        android:textColor="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employmentStatusAutoComplete"
+        app:layout_constraintVertical_bias="0.966" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
