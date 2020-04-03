@@ -26,7 +26,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.081"
         app:suffixTextColor="@color/Red">
-        ​<com.google.android.material.textfield.TextInputEditText
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/enterFirstNameTextView"
             android:layout_width="115dp"
             android:layout_height="wrap_content"
@@ -92,10 +94,10 @@
         android:background="@drawable/btn_rounded_green_300"
         android:entries="@array/suffixArray"
         android:popupBackground="@drawable/spinner_rounded_green_300"
-        android:textColor="@color/blue_grey_500"
         android:spinnerMode="dropdown"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+        android:textColor="@color/blue_grey_500"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -400,9 +402,9 @@
         app:layout_constraintStart_toEndOf="@+id/spinner"
         app:layout_constraintTop_toBottomOf="@+id/mobileTextView"
         app:layout_constraintVertical_bias="0.0"
-        app:suffixTextColor="@color/Red"
+        app:startIconCheckable="true"
         app:startIconTint="@color/green_400"
-        app:startIconCheckable="true">
+        app:suffixTextColor="@color/Red">
         ​
 
         <com.google.android.material.textfield.TextInputEditText
@@ -424,7 +426,7 @@
         android:textColor="@color/green_300"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.037"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/employmentStatusAutoComplete"
         app:layout_constraintVertical_bias="0.966" />
@@ -446,5 +448,64 @@
         app:layout_constraintTop_toBottomOf="@+id/countryCodeSpinner"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/software_installation"
+        android:buttonTint="@color/green_300"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkBox2"
+        app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/green_300"
+        android:text="@string/slow_internet"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkBox3"
+        app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/system_crashing"
+        android:buttonTint="@color/green_300"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkBox4"
+        app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/network_issue"
+        android:buttonTint="@color/green_300"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@android:style/Widget.Material.RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="65dp"
+        android:progressTint="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

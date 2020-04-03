@@ -3,16 +3,20 @@ package com.lambton.complaint_filing_system;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.MaterialDatePicker;
+
+import java.util.Calendar;
 
 public class ComplaintEntryActivity extends AppCompatActivity {
 
@@ -66,9 +70,26 @@ public class ComplaintEntryActivity extends AppCompatActivity {
     }
 
     public void dateImageButton(View view){
-        MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
-        builder.setTitleText(R.string.save);
-        MaterialDatePicker<Long> picker = builder.build();
-        picker.show(getSupportFragmentManager(), picker.toString());
+        DatePickerDialog datePickerDialog;
+        // Calendar object to hold the selected data
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR); // current year
+        int mMonth = c.get(Calendar.MONTH); // current month
+        int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
+// date picker dialog
+        datePickerDialog = new DatePickerDialog(ComplaintEntryActivity.this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        // set day of month , month and year value in the edit text
+                        issueDate.setText(dayOfMonth + "/"
+                                + (monthOfYear + 1) + "/" + year);
+
+                    }
+                }, mYear, mMonth, mDay);
+        datePickerDialog.show();
+
     }
 }
