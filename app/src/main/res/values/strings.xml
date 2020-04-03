@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Complaint_Filing_System</string>
+    <array name="suffixArray">
+        <item>Mr.</item>
+        <item>Mrs.</item>
+        <item>Ms.</item>
+        <item>Miss.</item>
+        <item>Dr.</item>
+        <item>Sir.</item>
+        <item>Lord.</item>
+    </array>
+</resources>
