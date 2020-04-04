@@ -1,26 +1,26 @@
 package com.lambton.complaint_filing_system;
 
 public class ComplaintEntry {
-   public String suffixTitle;
+    static public String suffixTitle;
     public String firstName;
     public  String lastName;
-    public String employmentStatus;
-    public String designationStatus;
-    public String unitNo;
-    public String streetNo;
-    public String streetName;
-    public String city;
-    public String province;
-    public  String country;
-    public String email;
-    public String countryCode;
+    static public String employmentStatus;
+    static public String designationStatus;
+    static public String unitNo;
+    static public String streetNo;
+    static public String streetName;
+    static public String city;
+    static public String province;
+    static public  String country;
+    static public String email;
+    static public String countryCode;
     public String mobile;
-    public String dateOfIssue;
-    public String severity1;
-    public String severity2;
-    public String severity3;
-    public String severity4;
-    public String  severityRating;
+    static public String dateOfIssue;
+    static  public String severity1;
+    static public String severity2;
+    static public String severity3;
+    static public String severity4;
+    static public String  severityRating;
 
     public ComplaintEntry(){
 

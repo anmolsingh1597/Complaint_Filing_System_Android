@@ -167,22 +167,22 @@ public class ComplaintEntryActivity extends AppCompatActivity {
 
     private void checkboxes(){
         if (checkBox1.isChecked()){
-            severity1 = "Software Installation";
+            severity1 = "Software Installation, ";
         }else{
             severity1 = "";
         }
          if (checkBox2.isChecked()){
-            severity2 = "Slow Internet";
+            severity2 = "Slow Internet, ";
         }else{
              severity2 = "";
          }
         if (checkBox3.isChecked()){
-            severity3 = "System Crashing";
+            severity3 = "System Crashing, ";
         }else{
             severity3 = "";
         }
          if (checkBox4.isChecked()){
-            severity4 = checkBox4.getText().toString();
+            severity4 = "Network Problem";
         }else{
             severity4 = "";
         }
@@ -190,13 +190,8 @@ public class ComplaintEntryActivity extends AppCompatActivity {
 
 
     private void ratingBarAction(){
-        severityBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                severityRating = String.valueOf(severityBar.getProgress());
 
-            }
-        });
+        severityRating = String.valueOf(severityBar.getRating());
     }
 
     public void save(View view){
@@ -249,6 +244,28 @@ public class ComplaintEntryActivity extends AppCompatActivity {
     public void passingData(){
         ComplaintEntry userEntry = new ComplaintEntry(suffixTitle,firstName,lastName,employmentStatus,designationStatus,unitNo,streetNo,streetName,city,province,country,email,
                 countryCode,mobile,dateOfIssue,severity1,severity2,severity3,severity4,severityRating);
+    }
+
+    public void clear(View view){
+        firstNameText.setText("");
+        lastNameText.setText("");
+        emailText.setText("");
+        employmentStatusAutoComplete.setText("");
+        designationStatusAutoComplete.setText("");
+        unitNoText.setText("");
+        streetNoText.setText("");
+        streetNameText.setText("");
+        cityText.setText("");
+        provinceText.setText("");
+        countryText.setText("");
+        mobileText.setText("");
+        issueDate.setText("");
+        checkBox1.setChecked(false);
+        checkBox2.setChecked(false);
+        checkBox3.setChecked(false);
+        checkBox4.setChecked(false);
+        severityBar.setRating((float) 0.0);
+
     }
 
 }
