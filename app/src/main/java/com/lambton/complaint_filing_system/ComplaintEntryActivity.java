@@ -6,11 +6,13 @@ import androidx.core.util.Pair;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.MaterialDatePicker;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 public class ComplaintEntryActivity extends AppCompatActivity {
@@ -67,6 +70,7 @@ public class ComplaintEntryActivity extends AppCompatActivity {
     String severity3;
     String severity4;
     String  severityRating;
+    ComplaintEntry userEntry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,17 +122,6 @@ public class ComplaintEntryActivity extends AppCompatActivity {
         };
         ArrayAdapter<String> statusAdapter = new ArrayAdapter<>(ComplaintEntryActivity.this,android.R.layout.simple_spinner_dropdown_item,statusList);
         employmentStatusAutoComplete.setAdapter(statusAdapter);
-//        employmentStatusAutoComplete.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                employmentStatus = statusList[position];
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
     }
 
     private void autoCompleteDesignation(){
@@ -213,6 +206,8 @@ public class ComplaintEntryActivity extends AppCompatActivity {
          mobile = mobileText.getText().toString();
 
         passingData();
+        Bundle userBundle = new Bundle();
+        userBundle.putSerializable("userBundle", (Serializable) userEntry);
 
         Intent homeIntent = new Intent(ComplaintEntryActivity.this,DisplayActivity.class);
         homeIntent.putExtra("Suffix",suffixTitle);
@@ -235,6 +230,7 @@ public class ComplaintEntryActivity extends AppCompatActivity {
         homeIntent.putExtra("Check3",severity3);
         homeIntent.putExtra("Check4",severity4);
         homeIntent.putExtra("Rating",severityRating);
+        homeIntent.putExtra("userObject", userBundle);
 
         startActivity(homeIntent);
 
@@ -242,8 +238,9 @@ public class ComplaintEntryActivity extends AppCompatActivity {
     }
 
     public void passingData(){
-        ComplaintEntry userEntry = new ComplaintEntry(suffixTitle,firstName,lastName,employmentStatus,designationStatus,unitNo,streetNo,streetName,city,province,country,email,
+         userEntry = new ComplaintEntry(suffixTitle,firstName,lastName,employmentStatus,designationStatus,unitNo,streetNo,streetName,city,province,country,email,
                 countryCode,mobile,dateOfIssue,severity1,severity2,severity3,severity4,severityRating);
+
     }
 
     public void clear(View view){

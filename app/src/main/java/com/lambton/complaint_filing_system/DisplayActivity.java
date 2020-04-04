@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,8 @@ public class DisplayActivity extends AppCompatActivity {
     private TextView address2;
     private TextView issues;
     private TextView severity;
+    Bundle fetchedUser;
+    ComplaintEntry object;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +42,7 @@ public class DisplayActivity extends AppCompatActivity {
         String adressString2 = "City: " + ComplaintEntry.city + ", Province: " + ComplaintEntry.province + ", Country " + ComplaintEntry.country;
 
         Intent intent = getIntent();
-        if (intent.hasExtra("First") || intent.hasExtra("Last") || intent.hasExtra("Mobile")) {
+        if (intent.hasExtra("First") || intent.hasExtra("Last") || intent.hasExtra("Mobile") || intent.hasExtra("userObject")) {
             String name = intent.getStringExtra("First") + " " + intent.getStringExtra("Last");
             String mobile = intent.getStringExtra("Mobile");
             firstName.setText(ComplaintEntry.suffixTitle + name);
@@ -50,6 +53,11 @@ public class DisplayActivity extends AppCompatActivity {
             address2.setText(adressString2);
             issues.setText("Issues: " + ComplaintEntry.severity1 + ComplaintEntry.severity2 + ComplaintEntry.severity3 + ComplaintEntry.severity4);
 
+            //----------------------Object Passed---------------------------------------------------------------------------
+            fetchedUser = intent.getBundleExtra("userObject");
+            object = (ComplaintEntry) fetchedUser.getSerializable("userBundle");
+            Toast.makeText(DisplayActivity.this, object.firstName + object.lastName, Toast.LENGTH_SHORT).show();
+            //--------------------------------------------------------------------------------------------------------------
             severity.setText("Severity: " + ComplaintEntry.severityRating);
             if (ComplaintEntry.severityRating.equals(String.valueOf(1.0))){
                 severity.setTextColor(Color.parseColor("#00FFFF"));
