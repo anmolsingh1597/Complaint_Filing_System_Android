@@ -381,7 +381,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/blue_grey_500"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            app:textInputLayoutFocusedRectEnabled="false" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

@@ -56,7 +56,7 @@ public class DisplayActivity extends AppCompatActivity {
             } else if (ComplaintEntry.severityRating.equals(String.valueOf(2.0))){
                 severity.setTextColor(Color.parseColor("#00ff00"));
             }else if (ComplaintEntry.severityRating.equals(String.valueOf(3.0))){
-                severity.setTextColor(Color.parseColor(" #ffff00"));
+                severity.setTextColor(Color.parseColor("#ffff00"));
             }else if (ComplaintEntry.severityRating.equals(String.valueOf(4.0))){
                 severity.setTextColor(Color.parseColor("#ffa500"));
             }else if (ComplaintEntry.severityRating.equals(String.valueOf(5.0))){
