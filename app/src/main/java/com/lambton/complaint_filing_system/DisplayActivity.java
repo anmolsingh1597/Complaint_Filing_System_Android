@@ -95,7 +95,6 @@ public class DisplayActivity extends AppCompatActivity {
 
     public void fetchValues(){
 
-//        final HashMap<String, String>[] usersMap = new HashMap<String, String>[];
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -103,7 +102,10 @@ public class DisplayActivity extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 HashMap<String, HashMap<String, String>> value = (HashMap<String, HashMap<String, String>>) dataSnapshot.getValue();
-                Log.d("Value is: ", value.values().toString());
+                HashMap<String, String>[] usersMap;
+                usersMap = value.values().toArray(new HashMap[value.size()]);
+                Log.d("Value is: ", usersMap[0].get("mobile"));
+//                usersMap = new HashMap<String, String>[value.size()];
 //                for(int i=0; i <= value.size(); i++){
 //                usersMap[0] = (HashMap<String, String>) value.values();
 //            }
