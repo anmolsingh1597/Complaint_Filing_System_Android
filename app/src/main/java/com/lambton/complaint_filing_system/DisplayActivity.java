@@ -6,8 +6,19 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.lang.reflect.Array;
+import java.util.HashMap;
 
 public class DisplayActivity extends AppCompatActivity {
 
@@ -21,12 +32,16 @@ public class DisplayActivity extends AppCompatActivity {
     private TextView severity;
     Bundle fetchedUser;
     ComplaintEntry object;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Credentials").child("Values");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
         getSupportActionBar().hide();
         intials();
+        fetchValues();
     }
 
     private void intials(){
@@ -76,5 +91,30 @@ public class DisplayActivity extends AppCompatActivity {
             }
 
         }
+    }
+
+    public void fetchValues(){
+
+//        final HashMap<String, String>[] usersMap = new HashMap<String, String>[];
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                HashMap<String, HashMap<String, String>> value = (HashMap<String, HashMap<String, String>>) dataSnapshot.getValue();
+                Log.d("Value is: ", value.values().toString());
+//                for(int i=0; i <= value.size(); i++){
+//                usersMap[0] = (HashMap<String, String>) value.values();
+//            }
+                Toast.makeText(DisplayActivity.this,value.values().toString() , Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("Failed to read value.", error.toException());
+            }
+        });
     }
 }

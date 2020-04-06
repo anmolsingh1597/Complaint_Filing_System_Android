@@ -23,6 +23,8 @@ import android.widget.Toast;
 
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -71,6 +73,9 @@ public class ComplaintEntryActivity extends AppCompatActivity {
     String severity4;
     String  severityRating;
     ComplaintEntry userEntry;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Credentials");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -241,6 +246,7 @@ public class ComplaintEntryActivity extends AppCompatActivity {
          userEntry = new ComplaintEntry(suffixTitle,firstName,lastName,employmentStatus,designationStatus,unitNo,streetNo,streetName,city,province,country,email,
                 countryCode,mobile,dateOfIssue,severity1,severity2,severity3,severity4,severityRating);
 
+         myRef.child("Values").push().setValue(userEntry);
     }
 
     public void clear(View view){
