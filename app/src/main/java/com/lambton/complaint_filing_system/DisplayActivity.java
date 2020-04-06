@@ -34,7 +34,7 @@ public class DisplayActivity extends AppCompatActivity {
     ComplaintEntry object;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("Credentials").child("Values");
+    DatabaseReference myRef = database.getReference("Credentials");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

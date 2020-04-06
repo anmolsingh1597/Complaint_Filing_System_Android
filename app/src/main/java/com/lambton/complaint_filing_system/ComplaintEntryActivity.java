@@ -246,7 +246,7 @@ public class ComplaintEntryActivity extends AppCompatActivity {
          userEntry = new ComplaintEntry(suffixTitle,firstName,lastName,employmentStatus,designationStatus,unitNo,streetNo,streetName,city,province,country,email,
                 countryCode,mobile,dateOfIssue,severity1,severity2,severity3,severity4,severityRating);
 
-         myRef.child("Values").push().setValue(userEntry);
+         myRef.push().setValue(userEntry);
     }
 
     public void clear(View view){
