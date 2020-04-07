@@ -36,7 +36,6 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.Coun
         CountryViewHolder myCountryViewHolder = new CountryViewHolder(mView);
         return myCountryViewHolder;
     }
-
     @Override
     public void onBindViewHolder(@NonNull final CountryViewHolder holder, final int position) {
         Country countryObject = this.countryArrayList.get(position);
